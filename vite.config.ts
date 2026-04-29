@@ -11,7 +11,7 @@ export default defineConfig({
         server.middlewares.use((_req, res, next) => {
           res.setHeader(
             "Content-Security-Policy",
-            // To reproduce the EvalError: use the CSP below (without 'wasm-unsafe-eval') and run `npm start`.
+            // To reproduce the unsafe-eval issue: use the CSP below (without 'wasm-unsafe-eval') and run `npm start`.
             // To suppress the error: swap in the line that includes 'wasm-unsafe-eval'.
             // Note: 'wasm-unsafe-eval' or 'unsafe-eval' is not acceptable in our production CSP.
             //

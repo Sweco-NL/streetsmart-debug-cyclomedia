@@ -10,10 +10,10 @@ The StreetSmart point cloud viewer fails when served under a Content Security Po
    npm install
    npm start
    ```
-3. Open the app in the browser and navigate to a location with a point cloud
+3. Open the app in the browser and open the point cloud
 
 **Expected:** point cloud renders normally  
-**Actual:** the following error appears in the browser console:
+**Actual:** the unity loader hangs and following error appears in the browser console:
 
 ```
 UnityLoader.js:1 failed to asynchronously prepare wasm: CompileError:
@@ -25,4 +25,4 @@ allowed source of script in the following Content Security Policy directive:
 
 ## Workaround
 
-In `vite.config.ts`, add `'wasm-unsafe-eval'` to `script-src`. The error disappears — however, **`'wasm-unsafe-eval'` is not an acceptable directive in our production CSP** and cannot be used as a fix.
+In `vite.config.ts`, add `'wasm-unsafe-eval'` to `script-src`. The error disappears — however, **`'wasm-unsafe-eval'` is unfortunately not an acceptable directive in our production CSP** and cannot be used as a fix. It's just a workaround to get the app running locally for testing purposes.
